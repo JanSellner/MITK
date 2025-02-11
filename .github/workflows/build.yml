@@ -9,6 +9,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: MITK
+
+      - name: List directory
+        run: |
+          brew install tree
+          tree .
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
@@ -32,9 +39,7 @@ jobs:
           make package
 
       - name: List build
-        run: |
-          brew install tree
-          tree MITK-build/bin
+        run: tree MITK-build/bin
       
       - name: Upload disk image
         uses: actions/upload-artifact@v4
