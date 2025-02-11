@@ -13,7 +13,7 @@ jobs:
           path: MITK
 
       - name: Install tools
-        run: brew install tree doxygen
+        run: brew install tree doxygen libomp
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
