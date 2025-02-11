@@ -23,7 +23,7 @@ jobs:
           host: mac
           target: desktop
           arch: clang_64
-          modules: 'qtscxml qtwebchannel qtwebengine qtwebsockets qt5compat'
+          modules: 'qt3d qtcharts qtconnectivity qtdatavis3d qtgraphs qtgrpc qthttpserver qtimageformats qtlanguageserver qtlocation qtlottie qtmultimedia qtnetworkauth qtpdf qtpositioning qtquick3dphysics qtquickeffectmaker qtremoteobjects qtscxml qtsensors qtserialbus qtserialport qtspeech qtvirtualkeyboard qtwebchannel qtwebengine qtwebsockets qtwebview qt5compat qtquick3d qtquicktimeline qtshadertools'
           cache: 'true'
 
       - name: Build MITK
