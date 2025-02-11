@@ -28,7 +28,7 @@ jobs:
 
       - name: Build MITK
         env:
-          MACOSX_DEPLOYMENT_TARGET: 10.14
+          MACOSX_DEPLOYMENT_TARGET: 10.15
         run: |
           mkdir MITK-superbuild
           cd MITK-superbuild
