@@ -19,6 +19,7 @@ jobs:
           target: desktop
           arch: clang_64
           modules: qtwebengine
+          cache: 'true'
 
       - name: Build MITK
         env:
@@ -26,7 +27,7 @@ jobs:
         run: |
           mkdir MITK-superbuild
           cd MITK-superbuild
-          ccmake -DCMAKE_BUILD_TYPE=Release ../MITK
+          cmake -DCMAKE_BUILD_TYPE=Release ../MITK
           make -j4
           make package
 
