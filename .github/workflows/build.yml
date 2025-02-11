@@ -13,11 +13,12 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
-          aqtversion: '==3.1.19'
-          version: 6.8.2
+          aqtversion: '==3.1.*'
+          version: 6.7.3
           host: mac
           target: desktop
           arch: clang_64
+          modules: qtwebengine
 
       - name: Build MITK
         env:
