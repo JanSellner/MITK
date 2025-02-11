@@ -12,6 +12,9 @@ jobs:
         with:
           path: MITK
 
+      - name: Add ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+
       - name: Install tools
         run: brew install tree doxygen libomp
 
@@ -33,15 +36,16 @@ jobs:
           export OpenMP_ROOT=$(brew --prefix)/opt/libomp
           mkdir MITK-superbuild
           cd MITK-superbuild
-          cmake -DCMAKE_BUILD_TYPE=Release ../MITK
+          cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache ../MITK
           make -j4
+          cd MITK-build
           make package
 
-      - name: List build
-        run: tree MITK-build/bin
+      - name: List binaries
+        run: tree bin
       
       - name: Upload disk image
         uses: actions/upload-artifact@v4
         with:
           name: image-${{ matrix.os }}
-          path: MITK-build/bin/*.dmg
+          path: bin/*.dmg
