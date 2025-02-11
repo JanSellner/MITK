@@ -12,10 +12,8 @@ jobs:
         with:
           path: MITK
 
-      - name: List directory
-        run: |
-          brew install tree
-          tree .
+      - name: Install tools
+        run: brew install tree doxygen
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
