@@ -1,0 +1,40 @@
+name: Builds
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build on MacOS
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.8.*
+          host: mac
+          target: desktop
+          arch: clang_64
+
+      - name: Build MITK
+        env:
+          MACOSX_DEPLOYMENT_TARGET: 10.14
+        run: |
+          mkdir MITK-superbuild
+          cd MITK-superbuild
+          ccmake -DCMAKE_BUILD_TYPE=Release ../MITK
+          make -j4
+          make package
+
+      - name: List build
+        run: |
+          brew install tree
+          tree MITK-build/bin
+      
+      - name: Upload disk image
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-${{ matrix.os }}
+          path: MITK-build/bin/*.dmg
