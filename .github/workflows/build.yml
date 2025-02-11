@@ -23,7 +23,7 @@ jobs:
           host: mac
           target: desktop
           arch: clang_64
-          modules: 'qtwebengine qt5compat'
+          modules: 'qtscxml qtwebengine qt5compat'
           cache: 'true'
 
       - name: Build MITK
