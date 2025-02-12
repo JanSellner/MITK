@@ -25,11 +25,11 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           aqtversion: '==3.1.*'
-          version: 6.7.3
+          version: 6.2.*
           host: mac
           target: desktop
           arch: clang_64
-          modules: 'qt3d qtcharts qtconnectivity qtdatavis3d qtgraphs qtgrpc qthttpserver qtimageformats qtlanguageserver qtlocation qtlottie qtmultimedia qtnetworkauth qtpdf qtpositioning qtquick3dphysics qtquickeffectmaker qtremoteobjects qtscxml qtsensors qtserialbus qtserialport qtspeech qtvirtualkeyboard qtwebchannel qtwebengine qtwebsockets qtwebview qt5compat qtquick3d qtquicktimeline qtshadertools'
+          modules: 'qt3d qtcharts qtconnectivity qtdatavis3d qtimageformats qtlottie qtmultimedia qtnetworkauth qtpositioning qtremoteobjects qtscxml qtsensors qtserialbus qtserialport qtvirtualkeyboard qtwebchannel qtwebengine qtwebsockets qtwebview debug_info qt5compat qtquick3d qtquicktimeline qtshadertools'
           cache: 'true'
 
       - name: Build MITK
@@ -51,5 +51,5 @@ jobs:
       - name: Upload disk image
         uses: actions/upload-artifact@v4
         with:
-          name: image-${{ matrix.os }}
+          name: image-1015
           path: MITK-superbuild/MITK-build/*.dmg
