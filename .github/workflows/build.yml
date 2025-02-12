@@ -11,12 +11,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: MITK
-          max-size: "2000M"
 
       - name: Add ccache
         uses: hendrikmuhs/ccache-action@v1.2
         with:
-          key: ${{ github.job }}-${{ matrix.os }}
+          key: ${{ github.job }}-macos-13
+          max-size: "2000M"
 
       - name: Install tools
         run: brew install tree doxygen libomp
