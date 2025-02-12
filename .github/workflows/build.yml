@@ -40,7 +40,7 @@ jobs:
           export OpenMP_ROOT=$(brew --prefix)/opt/libomp
           mkdir MITK-superbuild
           cd MITK-superbuild
-          cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache ../MITK
+          cmake -D MITK_USE_Qt6=OFF -D CMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache ../MITK
           make -j4
           cd MITK-build
           make package
